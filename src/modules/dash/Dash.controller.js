@@ -50,7 +50,7 @@
 
     scanSuccess(barcodeData) {
       this.barcode = barcodeData;
-      this.Customers.getOption().then(
+      this.Customers.getOption(barcodeData.text).then(
         this.setOption.bind(this),
         this.optionError.bind(this)
       );

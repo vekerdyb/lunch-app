@@ -1,6 +1,5 @@
 (() => {
-
-  function Customers($q) {
+  function Customers(Restangular) {
     let customers = [{
       id: 0,
       meal_option: 'A',
@@ -26,31 +25,26 @@
         vegetarian: true
       }
     }];
-    let counter = 0;
 
-    let nextMealOption = () => {
-      let i = counter % customers.length;
-      counter++;
-      return customers[i];
+    let resource = 'customers';
+
+    let domainObject = Restangular.all('customers');
+
+    domainObject.getOption = (customerId) => {
+      return domainObject.one(customerId).customGET('option');
     };
 
-    return {
-      all() {
-        return customers;
-      },
-      getOption() {
-        let deferred = $q.defer();
-        deferred.resolve(nextMealOption());
-        return deferred.promise;
-      }
-    };
+    return domainObject;
   }
 
+
   Customers.$inject = [
-    '$q'
+    'Restangular'
   ];
 
-  let dependencies = [];
+  let dependencies = [
+    'restangular'
+  ];
 
   angular
     .module('starter.customers.service', dependencies)
