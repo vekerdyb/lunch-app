@@ -1,0 +1,10 @@
+<ion-view view-title="Dashboard">
+    <ion-content class="padding">
+        <div class="card meal-card" ng-repeat="meal in [{option: 'A', vegetarian: true, used: true}, {option: 'A'}, {option: 'B'}, {option: 'B', vegetarian: true}]">
+            <div class="row item item-text-wrap meal-card-option meal-card-option-{{ meal.option }}"
+                 ng-class="{'vegetarian': meal.vegetarian, 'invalid': meal.used}">
+                <div class="col col-center meal-card-option-text">{{ meal.option }}</div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

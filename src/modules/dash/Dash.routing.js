@@ -6,9 +6,18 @@
         parent: 'tab',
         url: '/dash',
         views: {
-          'tab-dash': {
+          'menuContent': {
             templateUrl: 'modules/dash/Dash.html',
             controller: 'DashController as dash'
+          }
+        }
+      })
+      .state('preview', {
+        parent: 'tab',
+        url: '/preview',
+        views: {
+          'menuContent': {
+            templateUrl: 'modules/dash/Preview.html'
           }
         }
       })

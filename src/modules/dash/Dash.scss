@@ -1,0 +1,43 @@
+.meal-card {
+    height: 78vh;
+    padding: 0;
+    border-radius: 1em;
+    margin: 0;
+}
+
+.meal-card-option {
+    min-height: 100%;
+    margin: 0;
+}
+
+.meal-card-option-text {
+    width: 100%;
+    text-align: center;
+    font-size: 14em;
+    font-weight: bold;
+    text-shadow: -3px -3px 0 #000,
+    3px -3px 0 #000,
+    -3px 3px 0 #000,
+    3px 3px 0 #000;
+}
+
+.meal-card-option-A {
+    background: #ebed30;
+    color: whitesmoke;
+}
+
+.meal-card-option-B {
+    background: #5237f5;
+    color: whitesmoke;
+}
+
+.meal-card-option.vegetarian {
+    background-image: url('img/carrot.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.meal-card-option.invalid {
+    -webkit-filter: grayscale(100%);
+}

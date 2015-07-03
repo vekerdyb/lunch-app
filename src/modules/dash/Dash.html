@@ -1,11 +1,23 @@
-<ion-view view-title="Dashboard">
+<ion-view view-title="Dashboard" id="dash">
     <ion-content class="padding">
-        <div class="list card">
-            <div class="item item-divider">Most Recent Barcode</div>
-            <div class="item item-body">
-                <div>
-                    {{ dash.barcode.text }}
-                </div>
+        <div ng-show="dash.error">
+            Error:
+            {{ dash.error }}
+        </div>
+        <div ng-show="dash.mealOption && !dash.error"
+             class="card meal-card">
+            <div class="row item item-text-wrap meal-card-option meal-card-option-{{ dash.mealOption }}"
+                 ng-class="{'vegetarian': dash.vegetarian, 'invalid': dash.usedAt}">
+                <div class="col col-center meal-card-option-text">{{ dash.mealOption }}</div>
             </div>
+        </div>
+
+
+        <div ng-show="dash.running" class="button button-full button-assertive" ng-click="dash.stopScanning()">Stop
+            scanning
+        </div>
+        <div ng-hide="dash.running" class="button button-full button-positive" ng-click="dash.startScanning()">Start
+            scanning
+        </div>
     </ion-content>
 </ion-view>
